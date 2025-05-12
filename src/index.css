@@ -9,7 +9,7 @@ html {
   line-height: 1.5;
 
   color: #ebe7ef;
-  background: radial-gradient(#FFFF00, #F0E68C);
+  background: radial-gradient(#ffff00, #f0e68c);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,7 @@ header {
 }
 
 header img {
-  height: 5rem;
+  height: 10rem;
   width: 10rem;
   object-fit: cover;
 }
