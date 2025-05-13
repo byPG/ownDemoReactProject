@@ -5,7 +5,7 @@ function App() {
     <div>
       <Header />
       <main>
-        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+        <h2>Get your healthy slad in the best price!</h2>
       </main>
     </div>
   );
