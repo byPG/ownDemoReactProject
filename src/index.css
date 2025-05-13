@@ -9,7 +9,7 @@ html {
   line-height: 1.5;
 
   color: #ebe7ef;
-  background: radial-gradient(#ffff00, #f0e68c);
+  background: radial-gradient(#b6c812, #008552);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -52,7 +52,7 @@ main {
   margin: auto;
 }
 
-#core-concepts {
+#menu {
   padding: 2rem;
   border-radius: 6px;
   background-color: #140524;
@@ -66,7 +66,7 @@ main h2 {
   color: #2f1d43;
 }
 
-#core-concepts ul {
+#menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -76,22 +76,22 @@ main h2 {
   justify-content: center;
 }
 
-#core-concepts li {
+#menu li {
   width: 10rem;
   text-align: center;
 }
 
-#core-concepts li img {
+#menu li img {
   height: 4rem;
   width: 6rem;
   object-fit: cover;
 }
 
-#core-concepts li h3 {
+#menu li h3 {
   margin: 0.5rem 0;
 }
 
-#core-concepts li p {
+#menu li p {
   font-size: 0.9rem;
 }
 
