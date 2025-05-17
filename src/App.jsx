@@ -2,6 +2,7 @@ import apple from "./assets/apple.png";
 import orange from "./assets/orange.png";
 import bananas from "./assets/bananas.png";
 import papaya from "./assets/papaya.png";
+import { useState } from "react";
 
 import { CORE_CONTENT_FRUIT } from "../src/data.js";
 
@@ -10,8 +11,11 @@ import Tabs from "./components/Tabs";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState("");
+
   function clickThebutton(selectedBtn) {
-    console.log(selectedBtn);
+    // console.log(selectedBtn);
+    setSelectedTopic(selectedBtn);
   }
 
   return (
@@ -54,7 +58,7 @@ function App() {
               Special Salad
             </TabButton>
           </menu>
-          DYNAMIC content
+          {selectedTopic}
         </section>
       </main>
     </div>
