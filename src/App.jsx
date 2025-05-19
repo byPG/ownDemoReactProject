@@ -5,6 +5,7 @@ import papaya from "./assets/papaya.png";
 import { useState } from "react";
 
 import { CORE_CONTENT_FRUIT } from "../src/data.js";
+import { EXAMPLES } from "../src/data.js";
 
 import Header from "./components/Header";
 import Tabs from "./components/Tabs";
