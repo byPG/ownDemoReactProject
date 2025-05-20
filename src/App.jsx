@@ -12,7 +12,7 @@ import Tabs from "./components/Tabs";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState("youth_salad");
 
   function clickThebutton(selectedBtn) {
     // console.log(selectedBtn);
@@ -46,20 +46,23 @@ function App() {
         </section>
         <section id="examples">
           <menu>
-            <TabButton handleClick={() => clickThebutton("Youth Salad")}>
+            <TabButton handleClick={() => clickThebutton("youth_salad")}>
               Youth Salad
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("Mixed Flavours")}>
+            <TabButton handleClick={() => clickThebutton("mixed_flavours")}>
               Mixed Flavours
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("Fit Salad")}>
+            <TabButton handleClick={() => clickThebutton("fit_salad")}>
               Fit Salad
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("Special Salad")}>
+            <TabButton handleClick={() => clickThebutton("special_salad")}>
               Special Salad
             </TabButton>
           </menu>
-          {selectedTopic}
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+          </div>
         </section>
       </main>
     </div>
