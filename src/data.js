@@ -22,24 +22,24 @@ export const CORE_CONTENT_FRUIT = [
 ];
 
 export const EXAMPLES = {
-  components: {
-    title: "Components",
+  youth_salad: {
+    title: "Youth Salad",
     description:
-      "Components are the building blocks of React applications. A component is a self-contained module (HTML + optional CSS + JS) that renders some output.",
+      "A vibrant and energizing mix of fresh, juicy fruits carefully selected to bring a refreshing taste and a touch of natural sweetness. This salad is perfect for those who want to feel light and revitalized. Packed with vitamins and full of color, it's a youthful treat for any time of day.",
   },
-  jsx: {
-    title: "JSX",
+  mixed_flavours: {
+    title: "Mixed Flavours",
     description:
-      "JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript (e.g., it may output dynamic content).",
+      "An explosion of fruity goodness in every bite. This salad brings together a variety of seasonal fruits for a unique taste experience—sweet, tangy, and everything in between. Whether you’re looking for a light snack or a colorful dessert, Mixed Flavours delivers the perfect harmony of taste and texture.",
   },
-  props: {
-    title: "Props",
+  fit_salad: {
+    title: "Fit Salad",
     description:
-      "Components accept arbitrary inputs called props. They are like function arguments.",
+      "Designed with health in mind, Fit Salad combines nutrient-rich fruits to support an active lifestyle. Low in calories and high in natural energy, it’s ideal for post-workout refreshment or as a light, guilt-free indulgence. Enjoy the fresh taste of wellness in every bite.",
   },
-  state: {
-    title: "State",
+  special_salad: {
+    title: "Special Salad",
     description:
-      "State allows React components to change their output over time in response to user actions, network responses, and anything else.",
+      "Crafted for those who appreciate something a little extra, this fruit salad blends classic favorites with an unexpected twist. Whether it’s an exotic fruit or a splash of citrus dressing, each ingredient is chosen to",
   },
 };
