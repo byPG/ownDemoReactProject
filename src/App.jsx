@@ -12,11 +12,22 @@ import Tabs from "./components/Tabs";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("youth_salad");
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function clickThebutton(selectedBtn) {
     // console.log(selectedBtn);
     setSelectedTopic(selectedBtn);
+  }
+
+  let tabContent = <p>Please select a topic.</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+      </div>
+    );
   }
 
   return (
@@ -59,10 +70,7 @@ function App() {
               Special Salad
             </TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
