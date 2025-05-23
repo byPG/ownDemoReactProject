@@ -57,16 +57,24 @@ function App() {
         </section>
         <section id="examples">
           <menu>
-            <TabButton handleClick={() => clickThebutton("youth_salad")}>
+            <TabButton
+              isSelected={selectedTopic === "youth_salad"}
+              handleClick={() => clickThebutton("youth_salad")}>
               Youth Salad
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("mixed_flavours")}>
+            <TabButton
+              isSelected={selectedTopic === "mixed_flavours"}
+              handleClick={() => clickThebutton("mixed_flavours")}>
               Mixed Flavours
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("fit_salad")}>
+            <TabButton
+              isSelected={selectedTopic === "fit_salad"}
+              handleClick={() => clickThebutton("fit_salad")}>
               Fit Salad
             </TabButton>
-            <TabButton handleClick={() => clickThebutton("special_salad")}>
+            <TabButton
+              isSelected={selectedTopic === "special_salad"}
+              handleClick={() => clickThebutton("special_salad")}>
               Special Salad
             </TabButton>
           </menu>
