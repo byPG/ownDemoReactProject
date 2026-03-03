@@ -1,87 +1,73 @@
-import apple from "./assets/apple.png";
-import orange from "./assets/orange.png";
-import bananas from "./assets/bananas.png";
-import papaya from "./assets/papaya.png";
-import { useState } from "react";
+import { useRef, useState } from 'react';
 
-import { CORE_CONTENT_FRUIT } from "../src/data.js";
-import { EXAMPLES } from "../src/data.js";
-
-import Header from "./components/Header";
-import Tabs from "./components/Tabs";
-import TabButton from "./components/TabButton.jsx";
+import Places from './components/Places.jsx';
+import { AVAILABLE_PLACES } from './data.js';
+import Modal from './components/Modal.jsx';
+import DeleteConfirmation from './components/DeleteConfirmation.jsx';
+import logoImg from './assets/logo.png';
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState();
+  const modal = useRef();
+  const selectedPlace = useRef();
+  const [pickedPlaces, setPickedPlaces] = useState([]);
 
-  function clickThebutton(selectedBtn) {
-    // console.log(selectedBtn);
-    setSelectedTopic(selectedBtn);
+  function handleStartRemovePlace(id) {
+    modal.current.open();
+    selectedPlace.current = id;
   }
 
-  let tabContent = <p>Please select a topic.</p>;
+  function handleStopRemovePlace() {
+    modal.current.close();
+  }
 
-  if (selectedTopic) {
-    tabContent = (
-      <div id="tab-content">
-        <h3>{EXAMPLES[selectedTopic].title}</h3>
-        <p>{EXAMPLES[selectedTopic].description}</p>
-      </div>
+  function handleSelectPlace(id) {
+    setPickedPlaces((prevPickedPlaces) => {
+      if (prevPickedPlaces.some((place) => place.id === id)) {
+        return prevPickedPlaces;
+      }
+      const place = AVAILABLE_PLACES.find((place) => place.id === id);
+      return [place, ...prevPickedPlaces];
+    });
+  }
+
+  function handleRemovePlace() {
+    setPickedPlaces((prevPickedPlaces) =>
+      prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
+    modal.current.close();
   }
 
   return (
-    <div>
-      <Header />
+    <>
+      <Modal ref={modal}>
+        <DeleteConfirmation
+          onCancel={handleStopRemovePlace}
+          onConfirm={handleRemovePlace}
+        />
+      </Modal>
+
+      <header>
+        <img src={logoImg} alt="Stylized globe" />
+        <h1>PlacePicker</h1>
+        <p>
+          Create your personal collection of places you would like to visit or
+          you have visited.
+        </p>
+      </header>
       <main>
-        <h2>Get your healthy slad in the best price!</h2>
-        <section id="menu">
-          <ul>
-            <Tabs
-              title={CORE_CONTENT_FRUIT[0].name}
-              description={CORE_CONTENT_FRUIT[0].description}
-              img={bananas}></Tabs>
-            <Tabs
-              title={CORE_CONTENT_FRUIT[1].name}
-              description={CORE_CONTENT_FRUIT[1].description}
-              img={apple}></Tabs>
-            <Tabs
-              title={CORE_CONTENT_FRUIT[2].name}
-              description={CORE_CONTENT_FRUIT[2].description}
-              img={orange}></Tabs>
-            <Tabs
-              title={CORE_CONTENT_FRUIT[3].name}
-              description={CORE_CONTENT_FRUIT[3].description}
-              img={papaya}></Tabs>
-          </ul>
-        </section>
-        <section id="examples">
-          <menu>
-            <TabButton
-              isSelected={selectedTopic === "youth_salad"}
-              handleClick={() => clickThebutton("youth_salad")}>
-              Youth Salad
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "mixed_flavours"}
-              handleClick={() => clickThebutton("mixed_flavours")}>
-              Mixed Flavours
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "fit_salad"}
-              handleClick={() => clickThebutton("fit_salad")}>
-              Fit Salad
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic === "special_salad"}
-              handleClick={() => clickThebutton("special_salad")}>
-              Special Salad
-            </TabButton>
-          </menu>
-          {tabContent}
-        </section>
+        <Places
+          title="I'd like to visit ..."
+          fallbackText={'Select the places you would like to visit below.'}
+          places={pickedPlaces}
+          onSelectPlace={handleStartRemovePlace}
+        />
+        <Places
+          title="Available Places"
+          places={AVAILABLE_PLACES}
+          onSelectPlace={handleSelectPlace}
+        />
       </main>
-    </div>
+    </>
   );
 }
 
