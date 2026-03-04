@@ -1,2 +1,0 @@
-# ownDemoReactProject
-demo project
